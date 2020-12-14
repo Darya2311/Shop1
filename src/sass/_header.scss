@@ -1,0 +1,81 @@
+header {
+    width: 100%;
+    min-height: 100px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+    .nav__menu {
+        margin: 0 auto;
+        width: 95%;
+        min-height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .menu__elements {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .menu__links {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .menu__links a{
+                text-transform: uppercase;
+                text-decoration: none;
+                color: #1D2547;
+                margin-right: 10px;
+                padding: 10px;
+                font-size: 20px;
+                border: 2px solid transparent;
+                &:hover {
+                    color: #9F78FF;
+                }
+            }
+            .menu__links a:last-child {
+                margin-right: 0;
+            }
+        }
+        .menu-burger {
+            display: none;
+            width: 50px;
+            height: 50px;
+            background-color: #EFF5F8;
+            .line {
+                width: 20px;
+                height: 2px;
+                background-color: white;
+                margin: 10px auto;
+            }
+        }
+        .menu__icons {
+            width: 50%;
+            display: flex; 
+            justify-content: flex-end;
+            .icon__item {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 1px solid rgba(29,37,71,0.12);
+                margin-right: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:nth-child(3) {
+                    margin-right: 30px;
+                }
+            }  
+            .icon__item.search {
+                background-color: #F6F8FE;
+                margin-right: 20px;
+            }
+            .icon__item.pack {
+                background-color:#9F78FF;
+                color: white;
+                border-radius: 30px;
+                width: 69px;
+            }
+        }
+    }
+}

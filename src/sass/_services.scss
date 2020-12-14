@@ -1,0 +1,24 @@
+.services  {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #F7F7FD;
+    padding: 140px 0;
+    display: flex;
+    justify-content: left;
+    .services__block {
+        width: 25%;
+        padding-left: 40px;
+        img {
+            margin-bottom: 25px;
+        }
+        h5 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        p {
+            color: #57667e;
+            font-size: 18px;
+        }
+    }
+}

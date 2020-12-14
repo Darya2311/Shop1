@@ -1,0 +1,16 @@
+.the-way {
+    margin: 0 auto;
+    width: 95%;
+    background-color: #EFF5F8;
+    padding: 13px 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 95px;
+    a, p {
+        color: #949EA5;
+        text-decoration: none;
+        text-transform: capitalize;
+        line-height: 2;
+        margin-right: 10px;
+    }
+}

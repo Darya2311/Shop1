@@ -1,0 +1,118 @@
+@media (max-width:720px) {
+    .main.media {
+        padding-bottom: 20px;
+        .main__header {
+            text-align: center;
+            h2 {
+                font-size: 40px;
+            }
+        }
+        .main__content {
+            flex-direction: column;
+            align-items: center;
+            .main__category {
+                width: 95%;
+                align-items: center;
+                .category {
+                    min-height: 25px;
+                }
+            }
+            .main__files {
+                width: 95%;
+            }
+        }
+    }
+    .services.media {
+        padding: 30px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        .services__block {
+            width: 40%;
+        }
+    }
+}
+
+@media (max-width:980px) {
+    header.media {
+        .nav__menu {
+            min-height: 100px;
+            padding: 10px 0;
+            flex-direction: column;
+            .menu__elements.media {
+                width: 100%;
+                align-items: center;
+                .menu__links {
+                    display: none;
+                }
+            }
+            .menu-burger.media {
+                display: block;
+            }
+            .menu__icons.media {
+                width: 100%;
+                justify-content: space-around;
+            }
+        }
+    }
+    .the-way.media {
+        margin-bottom: 20px;
+    }
+    .menu__elements.media {
+        .menu__links {
+            display: none;
+        }
+    }
+    .main__content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery.media {
+        .gallery__show {
+            flex-wrap: wrap;
+            .box {
+                width: 45%;
+                height: 100px;
+                margin: 0 10px 10px 0;
+            }
+        }
+    }
+    footer.media {
+        .footer__wrapper {
+            padding: 30px 0 0 0;
+            .footer__main{ 
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+                .footer__box.main {
+                    width: 55%;
+                    padding-left: 10px;
+                    padding-bottom: 20px;
+                }
+                .footer__box {
+                    width: 45%;
+                    a {
+                        font-size: 12px;
+                    }
+                    p {
+                        font-size: 14px;
+                        line-height: 1.1;
+                    }
+                }
+            }
+            .footer__but {
+                padding: 20px 0 40px 0;
+                margin: 0 auto;
+                width: 80%;
+            }
+        }
+    }
+}
+
+@media (max-width:420px) {
+    .gallery.media {
+        .gallery__show {
+            .box {
+                width: 80%;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 1920px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+  }
+
+p, h1, h2, h3, h4, h5{
+    margin: 0;
+    padding: 0;
+}
+@mixin textColor {
+    font-family: "Poppins",sans-serif;
+    color: #1D2547;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+@import '_media.scss';
+@import '_header.scss';
+@import '_way.scss';
+@import '_main.scss';
+@import '_gallery.scss';
+@import '_services.scss';
+@import '_footer.scss';
+
