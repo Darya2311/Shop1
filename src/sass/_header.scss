@@ -75,6 +75,9 @@ header {
                 color: white;
                 border-radius: 30px;
                 width: 69px;
+                .bag-page.hidden {
+                    display: none;
+                }
                 .bag-page {
                     width: 300px;
                     height: 300px;
@@ -83,7 +86,6 @@ header {
                     top: 100px;
                     right: 50px;
                     overflow: auto;
-                    display: none;
                     .for-cards {
                         padding-top: 10px;
                         width: 90%;

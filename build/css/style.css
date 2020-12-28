@@ -158,6 +158,8 @@ header {
         color: white;
         border-radius: 30px;
         width: 69px; }
+        header .nav__menu .menu__icons .icon__item.pack .bag-page.hidden {
+          display: none; }
         header .nav__menu .menu__icons .icon__item.pack .bag-page {
           width: 300px;
           height: 300px;
@@ -165,8 +167,7 @@ header {
           position: fixed;
           top: 100px;
           right: 50px;
-          overflow: auto;
-          display: none; }
+          overflow: auto; }
           header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards {
             padding-top: 10px;
             width: 90%;
