@@ -24,6 +24,7 @@ html(lang="en")
                         .line
                         .line
                         .line
+
                 .menu__icons.media
                     .icon__item
                         i.fab.fa-twitter
@@ -35,6 +36,35 @@ html(lang="en")
                         i.fas.fa-search
                     .icon__item.pack
                         i.fas.fa-shopping-bag
+                        .bag-page
+                            .for-cards
+                                .card-bag
+                                    img(src="images/pic1.jpg", alt="Shop-card")
+                                    .num-of 
+                                        p Количество
+                                        .num-area 
+                                            button -
+                                            input(placeholder="n")
+                                            button +
+                                .card-bag
+                                    img(src="images/pic2.jpg", alt="Shop-card")
+                                    .num-of 
+                                        p Количество
+                                        .num-area 
+                                            button -
+                                            input(placeholder="n")
+                                            button +                                
+                                .card-bag
+                                    img(src="images/pic3.jpg", alt="Shop")
+                                    .num-of 
+                                        p Количество
+                                        .num-area 
+                                            button -
+                                            input(placeholder="n")
+                                            button +
+                            .for-button
+                                button Buy
+                                button Exit
 
         .the-way.media
             a(href="#") Home  
@@ -48,121 +78,40 @@ html(lang="en")
                     p Browse from 230 latest items
                 .main__content
                     .main__category
-                        .category Category 
-                            i.fas.fa-chevron-down
-                        .category Type 
-                            i.fas.fa-chevron-down
-                        .category Size
-                            i.fas.fa-chevron-down
-                        .category Color
-                            i.fas.fa-chevron-down
-                        .category Price range
-                            i.fas.fa-chevron-down
+                        .filter.category Category 
+                            i.fas.fa-chevron-down.category-dd-icon
+                            .category-list
+                                .category-item(data-category="accessory") Accessory
+                                .category-item(data-category="clothes") Clothes
+                                .category-item(data-category="footwear") Footwear
+                                .category-item(data-category="all") All
+
+                        .filter.type Type 
+                            i.fas.fa-chevron-down.type-dd-icon
+                            .category-list
+                                .category-item(data-category="sm") Small
+                                .category-item(data-category="md") Medium
+                                .category-item(data-category="lg") Large
+                                .category-item(data-category="all") All
+
+                        .filter.color Color
+                            i.fas.fa-chevron-down.color-dd-icon
+                            .category-list
+                                .category-item(data-category="blue") blue
+                                .category-item(data-category="white") white
+                                .category-item(data-category="black") black
+                                .category-item(data-category="dark-blue") dark-blue
+                                .category-item(data-category="all") All
+
+                        .filter.price Price range
+                            i.fas.fa-chevron-down.price-dd-icon
+                            .category-list
+                                .category-item(data-category="30") &#60; 30$     
+                                .category-item(data-category="50") &#60; 50$    
+                                .category-item(data-category="100") &#60; 100$
+                                .category-item(data-category="all") All                    
+
                     .main__files
-                        .card
-                            img(src="images/pic1.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
-                        .card
-                            img(src="images/pic2.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
-                        .card
-                            img(src="images/pic3.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
-                        .card
-                            img(src="images/pic4.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
-                        .card
-                            img(src="images/pic5.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
-                        .card
-                            img(src="images/pic6.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
-                        .card
-                            img(src="images/pic7.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
-                        .card
-                            img(src="images/pic8.jpg", alt="Picture")
-                            .for__icon
-                                i.fas.fa-shopping-bag
-                            .card__caption
-                                h3 Caption
-                                .rating 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                p Price
                 button 
                     a(href="https://learn.javascript.ru") Browse More
 
@@ -246,5 +195,6 @@ html(lang="en")
                     .to__up
                         a(href='#top')
                             i.fas.fa-level-up-alt
+        
 
-
+    script(src="appl.js" defer)

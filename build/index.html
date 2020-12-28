@@ -26,7 +26,46 @@
           <div class="icon__item"><i class="fab fa-facebook-f"></i></div>
           <div class="icon__item"><i class="fab fa-pinterest-p"></i></div>
           <div class="icon__item search"><i class="fas fa-search"></i></div>
-          <div class="icon__item pack"><i class="fas fa-shopping-bag"></i></div>
+          <div class="icon__item pack"><i class="fas fa-shopping-bag"></i>
+            <div class="bag-page">
+              <div class="for-cards">
+                <div class="card-bag"><img src="images/pic1.jpg" alt="Shop-card"/>
+                  <div class="num-of"> 
+                    <p>Количество</p>
+                    <div class="num-area"> 
+                      <button>-</button>
+                      <input placeholder="n"/>
+                      <button>+</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-bag"><img src="images/pic2.jpg" alt="Shop-card"/>
+                  <div class="num-of"> 
+                    <p>Количество</p>
+                    <div class="num-area"> 
+                      <button>-</button>
+                      <input placeholder="n"/>
+                      <button>+                                </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-bag"><img src="images/pic3.jpg" alt="Shop"/>
+                  <div class="num-of"> 
+                    <p>Количество</p>
+                    <div class="num-area"> 
+                      <button>-</button>
+                      <input placeholder="n"/>
+                      <button>+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="for-button">
+                <button>Buy</button>
+                <button>Exit</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -41,78 +80,41 @@
         </div>
         <div class="main__content">
           <div class="main__category">
-            <div class="category">Category <i class="fas fa-chevron-down"></i></div>
-            <div class="category">Type <i class="fas fa-chevron-down"></i></div>
-            <div class="category">Size<i class="fas fa-chevron-down"></i></div>
-            <div class="category">Color<i class="fas fa-chevron-down"></i></div>
-            <div class="category">Price range<i class="fas fa-chevron-down"></i></div>
-          </div>
-          <div class="main__files">
-            <div class="card"><img src="images/pic1.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
+            <div class="filter category">Category <i class="fas fa-chevron-down category-dd-icon"></i>
+              <div class="category-list">
+                <div class="category-item" data-category="accessory">Accessory</div>
+                <div class="category-item" data-category="clothes">Clothes</div>
+                <div class="category-item" data-category="footwear">Footwear</div>
+                <div class="category-item" data-category="all">All</div>
               </div>
             </div>
-            <div class="card"><img src="images/pic2.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
+            <div class="filter type">Type <i class="fas fa-chevron-down type-dd-icon"></i>
+              <div class="category-list">
+                <div class="category-item" data-category="sm">Small</div>
+                <div class="category-item" data-category="md">Medium</div>
+                <div class="category-item" data-category="lg">Large</div>
+                <div class="category-item" data-category="all">All</div>
               </div>
             </div>
-            <div class="card"><img src="images/pic3.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
+            <div class="filter color">Color<i class="fas fa-chevron-down color-dd-icon"></i>
+              <div class="category-list">
+                <div class="category-item" data-category="blue">blue</div>
+                <div class="category-item" data-category="white">white</div>
+                <div class="category-item" data-category="black">black</div>
+                <div class="category-item" data-category="dark-blue">dark-blue</div>
+                <div class="category-item" data-category="all">All</div>
               </div>
             </div>
-            <div class="card"><img src="images/pic4.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
-              </div>
-            </div>
-            <div class="card"><img src="images/pic5.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
-              </div>
-            </div>
-            <div class="card"><img src="images/pic6.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
-              </div>
-            </div>
-            <div class="card"><img src="images/pic7.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
-              </div>
-            </div>
-            <div class="card"><img src="images/pic8.jpg" alt="Picture"/>
-              <div class="for__icon"><i class="fas fa-shopping-bag"></i></div>
-              <div class="card__caption">
-                <h3>Caption</h3>
-                <div class="rating"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>Price</p>
+            <div class="filter price">Price range<i class="fas fa-chevron-down price-dd-icon"></i>
+              <div class="category-list">
+                <div class="category-item" data-category="30">&#60; 30$     </div>
+                <div class="category-item" data-category="50">&#60; 50$    </div>
+                <div class="category-item" data-category="100">&#60; 100$</div>
+                <div class="category-item" data-category="all">All                    </div>
               </div>
             </div>
           </div>
+          <div class="main__files"></div>
         </div>
         <button> <a href="https://learn.javascript.ru">Browse More</a></button>
       </div>
@@ -182,4 +184,5 @@
       </div>
     </footer>
   </body>
+  <script src="appl.js" defer="defer"></script>
 </html>
