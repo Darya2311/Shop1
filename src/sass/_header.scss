@@ -42,13 +42,47 @@ header {
             width: 50px;
             height: 50px;
             background-color: #EFF5F8;
-            .line {
+            z-index: 30;
+            &:hover span {
+                filter: brightness(0.7);
+            }
+            span {
+                display: flex;
+                justify-content: center;
                 width: 20px;
                 height: 2px;
                 background-color: white;
                 margin: 10px auto;
             }
+            .nav.menu__burger {
+                position: absolute;
+                top: 10px;
+                right: 50%;
+                transform: translateX(50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: #EFF5F8;
+                width: 70%;
+                a.burger.menu__link {
+                    text-decoration: none;
+                    color: #1D2547;
+                    margin: 5px 0;
+                    letter-spacing: 4;
+                    &:hover {
+                        color: #9F78FF;
+                    }
+                }
+                
+            }
+            .nav.menu__burger.hidden {
+                display: none;
+            }
         }
+       
+        
+
         .menu__icons {
             width: 50%;
             display: flex; 
@@ -75,90 +109,92 @@ header {
                 color: white;
                 border-radius: 30px;
                 width: 69px;
-                .bag-page.hidden {
-                    display: none;
-                }
-                .bag-page {
-                    width: 300px;
-                    height: 300px;
-                    background-color: #F6F8FE;
-                    position: fixed;
-                    top: 100px;
-                    right: 50px;
-                    overflow: auto;
-                    .for-cards {
-                        padding-top: 10px;
-                        width: 90%;
-                        margin: 0 auto;
-                        .card-bag {
-                            width: 100%;
-                            min-height: 100px;
-                            border: 2px solid white;
-                            margin-bottom: 10px;
-                            display: flex;
-                            justify-content: space-around;
-                            img {
-                                width: 80px;
-                                height: 100px;
-                            }
-                            .num-of{
-                                padding-top: 10px;
-                                color: rgba(128, 128, 128, 0.603);
-                                display: flex;
-                                flex-direction: column;
-                                p {
-                                    margin-bottom: 10px;
-                                }
-                                .num-area {
-                                    padding: 0 5px;
-                                    width: 100%;
-                                    height: 50px;
-                                    background-color: white;
-                                    border-radius: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    button {
-                                        padding: 0;
-                                        margin: 0;
-                                        width: 30px;
-                                        height: 30px;
-                                        border-radius: 20px;
-
-                                    }
-                                    input {
-                                        margin: 0 10px;
-                                        width: 30px;
-                                        height: 30px;
-                                        border: none;
-                                        text-align: center;
-                                    }
-                                }
-
-                            }
-                        }
-
-                    }
-                    .for-button {
+            }
+            .bag-page.hidden {
+                display: none;
+            }
+            .bag-page {
+                width: 300px;
+                height: 300px;
+                background-color: #F6F8FE;
+                position: fixed;
+                top: 100px;
+                right: 50px;
+                overflow-y: auto;
+                box-shadow: 10px 10px 5px 0px rgba(231, 223, 223, 0.856);
+                .for-cards {
+                    padding-top: 10px;
+                    width: 90%;
+                    margin: 0 auto;
+                    .card-bag {
+                        width: 100%;
+                        min-height: 100px;
+                        border: 2px solid white;
+                        margin-bottom: 10px;
                         display: flex;
                         justify-content: space-around;
-                    }
-                    button {
-                        margin-top: 10px;
-                        height: 50px;
-                        width: 100px;
-                        background-color: #9F78FF;
-                        color: white;
-                        text-transform: uppercase;
-                        border: none;
-                        outline: none;
-                        &:hover {
-                            cursor: pointer;
-                            background-color: #9e78ff93;
+                        img {
+                            width: 80px;
+                            height: 100px;
+                        }
+                        .num-of{
+                            padding-top: 10px;
+                            color: rgba(128, 128, 128, 0.603);
+                            display: flex;
+                            flex-direction: column;
+                            p {
+                                margin-bottom: 10px;
+                            }
+                            .num-area {
+                                padding: 0 5px;
+                                width: 100%;
+                                height: 50px;
+                                background-color: white;
+                                border-radius: 20px;
+                                display: flex;
+                                align-items: center;
+                                button {
+                                    padding: 0;
+                                    margin: 0;
+                                    width: 30px;
+                                    height: 30px;
+                                    border-radius: 20px;
+
+                                }
+                                input {
+                                    margin: 0 10px;
+                                    width: 30px;
+                                    height: 30px;
+                                    border: none;
+                                    text-align: center;
+                                }
+                            }
+
                         }
                     }
+
                 }
-               
+                .for-button {
+                    display: flex;
+                    justify-content: space-around;
+                    padding-bottom: 10px;
+                }
+                button {
+                    margin-top: 10px;
+                    height: 50px;
+                    width: 100px;
+                    background-color: #9F78FF;
+                    color: white;
+                    text-transform: uppercase;
+                    border: none;
+                    outline: none;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #9e78ff93;
+                    }
+                }
             }
+               
         }
     }
 }

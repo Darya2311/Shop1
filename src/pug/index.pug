@@ -20,11 +20,17 @@ html(lang="en")
                         a(href="#") About
                         a(href="#") Blog
                         a(href="#") Contact
-                    .menu-burger.media
-                        .line
-                        .line
-                        .line
-
+                    .menu-burger
+                        span
+                        span
+                        span
+                        .nav.menu__burger.hidden
+                            a.burger.menu__link(href="#") Home
+                            a.burger.menu__link(href="#") Shop 
+                            a.burger.menu__link(href="#") About
+                            a.burger.menu__link(href="#") Blog
+                            a.burger.menu__link(href="#") Contact
+    
                 .menu__icons.media
                     .icon__item
                         i.fab.fa-twitter
@@ -36,35 +42,35 @@ html(lang="en")
                         i.fas.fa-search
                     .icon__item.pack
                         i.fas.fa-shopping-bag
-                        .bag-page.hidden
-                            .for-cards
-                                .card-bag
-                                    img(src="images/pic1.jpg", alt="Shop-card")
-                                    .num-of 
-                                        p Количество
-                                        .num-area 
-                                            button -
-                                            input(placeholder="n")
-                                            button +
-                                .card-bag
-                                    img(src="images/pic2.jpg", alt="Shop-card")
-                                    .num-of 
-                                        p Количество
-                                        .num-area 
-                                            button -
-                                            input(placeholder="n")
-                                            button +                                
-                                .card-bag
-                                    img(src="images/pic3.jpg", alt="Shop")
-                                    .num-of 
-                                        p Количество
-                                        .num-area 
-                                            button -
-                                            input(placeholder="n")
-                                            button +
-                            .for-button
-                                button Buy
-                                button Exit
+                    .bag-page.hidden
+                        .for-cards
+                            .card-bag
+                                img(src="images/pic1.jpg", alt="Shop-card")
+                                .num-of 
+                                    p Количество
+                                    .num-area 
+                                        button -
+                                        input(placeholder="n")
+                                        button +
+                            .card-bag
+                                img(src="images/pic2.jpg", alt="Shop-card")
+                                .num-of 
+                                    p Количество
+                                    .num-area 
+                                        button -
+                                        input(placeholder="n")
+                                        button +                                
+                            .card-bag
+                                img(src="images/pic3.jpg", alt="Shop")
+                                .num-of 
+                                    p Количество
+                                    .num-area 
+                                        button -
+                                        input(placeholder="n")
+                                        button +
+                        .for-button
+                            button Buy
+                            button Exit
 
         .the-way.media
             a(href="#") Home  

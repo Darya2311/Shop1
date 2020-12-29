@@ -48,7 +48,7 @@ p, h1, h2, h3, h4, h5 {
       align-items: center; }
       header.media .nav__menu .menu__elements.media .menu__links {
         display: none; }
-    header.media .nav__menu .menu-burger.media {
+    header.media .nav__menu .menu-burger {
       display: block; }
     header.media .nav__menu .menu__icons.media {
       width: 100%;
@@ -129,12 +129,37 @@ header {
       display: none;
       width: 50px;
       height: 50px;
-      background-color: #EFF5F8; }
-      header .nav__menu .menu-burger .line {
+      background-color: #EFF5F8;
+      z-index: 30; }
+      header .nav__menu .menu-burger:hover span {
+        filter: brightness(0.7); }
+      header .nav__menu .menu-burger span {
+        display: flex;
+        justify-content: center;
         width: 20px;
         height: 2px;
         background-color: white;
         margin: 10px auto; }
+      header .nav__menu .menu-burger .nav.menu__burger {
+        position: absolute;
+        top: 10px;
+        right: 50%;
+        transform: translateX(50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #EFF5F8;
+        width: 70%; }
+        header .nav__menu .menu-burger .nav.menu__burger a.burger.menu__link {
+          text-decoration: none;
+          color: #1D2547;
+          margin: 5px 0;
+          letter-spacing: 4; }
+          header .nav__menu .menu-burger .nav.menu__burger a.burger.menu__link:hover {
+            color: #9F78FF; }
+      header .nav__menu .menu-burger .nav.menu__burger.hidden {
+        display: none; }
     header .nav__menu .menu__icons {
       width: 50%;
       display: flex;
@@ -158,72 +183,74 @@ header {
         color: white;
         border-radius: 30px;
         width: 69px; }
-        header .nav__menu .menu__icons .icon__item.pack .bag-page.hidden {
-          display: none; }
-        header .nav__menu .menu__icons .icon__item.pack .bag-page {
-          width: 300px;
-          height: 300px;
-          background-color: #F6F8FE;
-          position: fixed;
-          top: 100px;
-          right: 50px;
-          overflow: auto; }
-          header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards {
-            padding-top: 10px;
-            width: 90%;
-            margin: 0 auto; }
-            header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards .card-bag {
-              width: 100%;
-              min-height: 100px;
-              border: 2px solid white;
-              margin-bottom: 10px;
-              display: flex;
-              justify-content: space-around; }
-              header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards .card-bag img {
-                width: 80px;
-                height: 100px; }
-              header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards .card-bag .num-of {
-                padding-top: 10px;
-                color: rgba(128, 128, 128, 0.603);
-                display: flex;
-                flex-direction: column; }
-                header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards .card-bag .num-of p {
-                  margin-bottom: 10px; }
-                header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards .card-bag .num-of .num-area {
-                  padding: 0 5px;
-                  width: 100%;
-                  height: 50px;
-                  background-color: white;
-                  border-radius: 20px;
-                  display: flex;
-                  align-items: center; }
-                  header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards .card-bag .num-of .num-area button {
-                    padding: 0;
-                    margin: 0;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 20px; }
-                  header .nav__menu .menu__icons .icon__item.pack .bag-page .for-cards .card-bag .num-of .num-area input {
-                    margin: 0 10px;
-                    width: 30px;
-                    height: 30px;
-                    border: none;
-                    text-align: center; }
-          header .nav__menu .menu__icons .icon__item.pack .bag-page .for-button {
+      header .nav__menu .menu__icons .bag-page.hidden {
+        display: none; }
+      header .nav__menu .menu__icons .bag-page {
+        width: 300px;
+        height: 300px;
+        background-color: #F6F8FE;
+        position: fixed;
+        top: 100px;
+        right: 50px;
+        overflow-y: auto;
+        box-shadow: 10px 10px 5px 0px rgba(231, 223, 223, 0.856); }
+        header .nav__menu .menu__icons .bag-page .for-cards {
+          padding-top: 10px;
+          width: 90%;
+          margin: 0 auto; }
+          header .nav__menu .menu__icons .bag-page .for-cards .card-bag {
+            width: 100%;
+            min-height: 100px;
+            border: 2px solid white;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-around; }
-          header .nav__menu .menu__icons .icon__item.pack .bag-page button {
-            margin-top: 10px;
-            height: 50px;
-            width: 100px;
-            background-color: #9F78FF;
-            color: white;
-            text-transform: uppercase;
-            border: none;
-            outline: none; }
-            header .nav__menu .menu__icons .icon__item.pack .bag-page button:hover {
-              cursor: pointer;
-              background-color: #9e78ff93; }
+            header .nav__menu .menu__icons .bag-page .for-cards .card-bag img {
+              width: 80px;
+              height: 100px; }
+            header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of {
+              padding-top: 10px;
+              color: rgba(128, 128, 128, 0.603);
+              display: flex;
+              flex-direction: column; }
+              header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of p {
+                margin-bottom: 10px; }
+              header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of .num-area {
+                padding: 0 5px;
+                width: 100%;
+                height: 50px;
+                background-color: white;
+                border-radius: 20px;
+                display: flex;
+                align-items: center; }
+                header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of .num-area button {
+                  padding: 0;
+                  margin: 0;
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 20px; }
+                header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of .num-area input {
+                  margin: 0 10px;
+                  width: 30px;
+                  height: 30px;
+                  border: none;
+                  text-align: center; }
+        header .nav__menu .menu__icons .bag-page .for-button {
+          display: flex;
+          justify-content: space-around;
+          padding-bottom: 10px; }
+        header .nav__menu .menu__icons .bag-page button {
+          margin-top: 10px;
+          height: 50px;
+          width: 100px;
+          background-color: #9F78FF;
+          color: white;
+          text-transform: uppercase;
+          border: none;
+          outline: none; }
+          header .nav__menu .menu__icons .bag-page button:hover {
+            cursor: pointer;
+            background-color: #9e78ff93; }
 
 .the-way {
   margin: 0 auto;

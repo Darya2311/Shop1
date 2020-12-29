@@ -164,10 +164,31 @@ function appRender(data) {
 appRender(data);
 
 
+
+
+// создает клик на корзину
 let btnBox = document.querySelector(".icon__item.pack")
 let boxPage = document.querySelector('.bag-page.hidden')
 function hiddenBlock() {
-    boxPage.classList.toggle(".hidden")
+    boxPage.classList.toggle("hidden")
 };
 
-btnBox.addEventListener("click", hiddenBlock())
+btnBox.addEventListener("click", hiddenBlock)
+
+
+
+// бургер меню
+let menu = document.querySelector(".menu-burger")
+let navigation = document.querySelector('.nav.menu__burger')
+let links = document.querySelectorAll(".burger.menu__link")
+
+function activeClass() {
+    menu.classList.toggle("active")
+}
+function addActive() {
+    menu.addEventListener("click", activeClass)
+    if (menu.classList.contains("active")) {
+        navigation.classList.remove("hidden")
+    }
+}
+addActive()
