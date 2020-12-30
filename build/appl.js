@@ -179,16 +179,9 @@ btnBox.addEventListener("click", hiddenBlock)
 
 // бургер меню
 let menu = document.querySelector(".menu-burger")
-let navigation = document.querySelector('.nav.menu__burger')
 let links = document.querySelectorAll(".burger.menu__link")
 
-function activeClass() {
+menu.addEventListener("click", function(e) {
+    // console.log(e.target);
     menu.classList.toggle("active")
-}
-function addActive() {
-    menu.addEventListener("click", activeClass)
-    if (menu.classList.contains("active")) {
-        navigation.classList.remove("hidden")
-    }
-}
-addActive()
+  })

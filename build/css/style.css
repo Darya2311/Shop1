@@ -150,16 +150,23 @@ header {
         align-items: center;
         justify-content: center;
         background-color: #EFF5F8;
-        width: 70%; }
+        width: 70%;
+        padding: 10px 0; }
         header .nav__menu .menu-burger .nav.menu__burger a.burger.menu__link {
+          border: 2px solid white;
+          text-align: center;
+          width: 80%;
           text-decoration: none;
           color: #1D2547;
           margin: 5px 0;
-          letter-spacing: 4; }
+          letter-spacing: 4;
+          padding: 10px 0; }
           header .nav__menu .menu-burger .nav.menu__burger a.burger.menu__link:hover {
             color: #9F78FF; }
-      header .nav__menu .menu-burger .nav.menu__burger.hidden {
+      header .nav__menu .menu-burger .nav.menu__burger {
         display: none; }
+      header .nav__menu .menu-burger.active .menu__burger {
+        display: flex; }
     header .nav__menu .menu__icons {
       width: 50%;
       display: flex;
