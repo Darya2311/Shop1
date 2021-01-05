@@ -6,7 +6,8 @@ const data = [
         price: 30, 
         name: "scarf",
         rating: 3,
-        imgUrl: "images/pic1.jpg"
+        imgUrl: "images/pic1.jpg",
+        id: 1
     },
     {
         category: "clothes",
@@ -15,7 +16,8 @@ const data = [
         price: 70, 
         name: "shirt",
         rating: 3,
-        imgUrl: "images/pic2.jpg"
+        imgUrl: "images/pic2.jpg",
+        id: 2
     },
     {
         category: "clothes",
@@ -24,7 +26,8 @@ const data = [
         price: 60, 
         name: "shirt",
         rating: 4,
-        imgUrl: "images/pic3.jpg"
+        imgUrl: "images/pic3.jpg",
+        id: 3
     },
     {
         category: "clothes",
@@ -33,7 +36,8 @@ const data = [
         price: 40, 
         name: "T-shirt",
         rating: 5,
-        imgUrl: "images/pic4.jpg"
+        imgUrl: "images/pic4.jpg",
+        id: 4
     },
     {
         category: "accessory",
@@ -42,7 +46,8 @@ const data = [
         price: 25, 
         name: "Glasses",
         rating: 5,
-        imgUrl: "images/pic5.jpg"
+        imgUrl: "images/pic5.jpg",
+        id: 5
     },
     {
         category: "clothes",
@@ -51,7 +56,8 @@ const data = [
         price: 50, 
         name: "jumper",
         rating: 3,
-        imgUrl: "images/pic6.jpg"
+        imgUrl: "images/pic6.jpg",
+        id: 6
     },
     {
         category: "footwear",
@@ -60,7 +66,8 @@ const data = [
         price: 30, 
         name: "sneakers",
         rating: 4,
-        imgUrl: "images/pic7.jpg"
+        imgUrl: "images/pic7.jpg",
+        id: 7
     },
     {
         category: "clothes",
@@ -69,9 +76,18 @@ const data = [
         price: 55, 
         name: "hoodies",
         rating: 3,
-        imgUrl: "images/pic8.jpg"
+        imgUrl: "images/pic8.jpg",
+        id: 8
     },
 ];  
+
+let shoppingCart = [];
+
+//  проверка сохраненной корзины
+window.addEventListener("load", function() {
+    let storageShoppingCart = JSON.parse(localStorage.getItem("shoppingCart")) === null ? [] : JSON.parse(localStorage.getItem("shoppingCart"))
+    shoppingCart = storageShoppingCart
+})
 
 
 //  показывает выпадашку фильтров 
@@ -120,7 +136,6 @@ function catFilter(data) { // попадает в data весь массив о�
 };
 
 
-
 //  шаблон карточки, добавление карточки в родительский элемент
 function cardRender(parent, data) {
     let parentEl = document.querySelector(parent);
@@ -128,7 +143,7 @@ function cardRender(parent, data) {
     let rating = renderRating(data);
 
     let card = `
-    <div class="card">
+    <div class="card" data-id="${data.id}">
         <img src="${data.imgUrl}" alt="Picture">
         <div class="for__icon">
             <i class="fas fa-shopping-bag"></i>
@@ -171,6 +186,7 @@ let btnBox = document.querySelector(".icon__item.pack")
 let boxPage = document.querySelector('.bag-page.hidden')
 function hiddenBlock() {
     boxPage.classList.toggle("hidden")
+    shoppingCartRender(shoppingCart);
 };
 
 btnBox.addEventListener("click", hiddenBlock)
@@ -182,6 +198,55 @@ let menu = document.querySelector(".menu-burger")
 let links = document.querySelectorAll(".burger.menu__link")
 
 menu.addEventListener("click", function(e) {
-    // console.log(e.target);
-    menu.classList.toggle("active")
-  })
+    menu.classList.toggle("active");
+})
+
+
+//   добавление элемента в корзину
+document.addEventListener("click", function(e) {
+    if(e.target.classList.contains("for__icon") || (e.target.classList.contains("fa-shopping-bag"))) {
+        let cardId = e.target.closest(".card").getAttribute("data-id")
+        let shoppingCartItem = {}
+        shoppingCartItem.imgUrl = data[cardId-1].imgUrl
+        shoppingCartItem.price = data[cardId-1].price 
+        shoppingCartItem.amount = 1
+        shoppingCartItem.id = cardId
+
+        shoppingCart.forEach(function(item) {
+            if(item.id === cardId) {
+                item.amount ++
+            } 
+        })
+        shoppingCart.push(shoppingCartItem)
+
+        localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+        console.log(shoppingCartItem)
+    }
+})
+
+//  отрисовка карточек в корзине
+function shoppingCartItemRender(parent, data) {
+    let parentEl = document.querySelector(parent);
+    let shoppingCard = `
+    <div class="card-bag">
+        <img src="${data.imgUrl}" alt="Shop-card">
+        <div class="card-price"> 
+            <p>цена: ${data.price} $</p>
+            <div class="num-area"> 
+                <button>-</button>
+                <div class="amount">${data.amount}</div>
+                <button>+</button>
+            </div>
+        </div>
+    </div>
+    `;
+    parentEl.innerHTML += shoppingCard
+} 
+
+// отрисовка корзины
+function shoppingCartRender(data) {
+    document.querySelector(".for-cards").innerHTML = '';
+    data.forEach(function(card) {
+        shoppingCartItemRender(".for-cards", card)
+    })
+}

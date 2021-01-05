@@ -57,9 +57,6 @@ p, h1, h2, h3, h4, h5 {
     margin-bottom: 20px; }
   .menu__elements.media .menu__links {
     display: none; }
-  .main__content {
-    flex-direction: column;
-    align-items: center; }
   .gallery.media .gallery__show {
     flex-wrap: wrap; }
     .gallery.media .gallery__show .box {
@@ -215,14 +212,14 @@ header {
             header .nav__menu .menu__icons .bag-page .for-cards .card-bag img {
               width: 80px;
               height: 100px; }
-            header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of {
+            header .nav__menu .menu__icons .bag-page .for-cards .card-bag .card-price {
               padding-top: 10px;
               color: rgba(128, 128, 128, 0.603);
               display: flex;
               flex-direction: column; }
-              header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of p {
+              header .nav__menu .menu__icons .bag-page .for-cards .card-bag .card-price p {
                 margin-bottom: 10px; }
-              header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of .num-area {
+              header .nav__menu .menu__icons .bag-page .for-cards .card-bag .card-price .num-area {
                 padding: 0 5px;
                 width: 100%;
                 height: 50px;
@@ -230,13 +227,13 @@ header {
                 border-radius: 20px;
                 display: flex;
                 align-items: center; }
-                header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of .num-area button {
+                header .nav__menu .menu__icons .bag-page .for-cards .card-bag .card-price .num-area button {
                   padding: 0;
                   margin: 0;
                   width: 30px;
                   height: 30px;
                   border-radius: 20px; }
-                header .nav__menu .menu__icons .bag-page .for-cards .card-bag .num-of .num-area input {
+                header .nav__menu .menu__icons .bag-page .for-cards .card-bag .card-price .num-area .amount {
                   margin: 0 10px;
                   width: 30px;
                   height: 30px;
