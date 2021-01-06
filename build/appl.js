@@ -192,6 +192,9 @@ function hiddenBlock() {
 btnBox.addEventListener("click", hiddenBlock)
 
 
+//  кнопка exit в корзине
+let exit = document.querySelector("button.exit")
+exit.addEventListener("click", hiddenBlock)
 
 // бургер меню
 let menu = document.querySelector(".menu-burger")
@@ -205,24 +208,42 @@ menu.addEventListener("click", function(e) {
 //   добавление элемента в корзину
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("for__icon") || (e.target.classList.contains("fa-shopping-bag"))) {
+        let allreadyEgsists = false;
+        let doublecatedItemIndex = null;
         let cardId = e.target.closest(".card").getAttribute("data-id")
-        let shoppingCartItem = {}
-        shoppingCartItem.imgUrl = data[cardId-1].imgUrl
-        shoppingCartItem.price = data[cardId-1].price 
-        shoppingCartItem.amount = 1
-        shoppingCartItem.id = cardId
+        let shoppingCartItem = {
+        imgUrl:  data[cardId-1].imgUrl,
+        price:   data[cardId-1].price,
+        amount:  1,
+        id: cardId
+        }
 
-        shoppingCart.forEach(function(item) {
-            if(item.id === cardId) {
-                item.amount ++
-            } 
-        })
-        shoppingCart.push(shoppingCartItem)
-
-        localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
-        console.log(shoppingCartItem)
-    }
+        for (let i = 0; i< shoppingCart.length; i++) {
+            if (shoppingCart[i].id === shoppingCartItem.id) {
+              allreadyEgsists = true
+              doublecatedItemIndex = i
+              break
+            }
+          }
+      
+          if (allreadyEgsists) {
+            shoppingCart[doublecatedItemIndex].amount++
+          } else {
+            shoppingCart.push(shoppingCartItem)
+          }
+    
+          localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+          shoppingCartRender(shoppingCart);
+        }
 })
+// кнопки + и - в корзине
+let addButton = document.querySelector(".add-amount")
+let removeButton = document.querySelector(".remove-amount")
+console.log(addButton)
+// addButton.addEventListener("click", function() {
+//     shoppingCart.amount++
+// })
+
 
 //  отрисовка карточек в корзине
 function shoppingCartItemRender(parent, data) {
@@ -233,9 +254,9 @@ function shoppingCartItemRender(parent, data) {
         <div class="card-price"> 
             <p>цена: ${data.price} $</p>
             <div class="num-area"> 
-                <button>-</button>
+                <button class="add-amount">-</button>
                 <div class="amount">${data.amount}</div>
-                <button>+</button>
+                <button class="remove-amount">+</button>
             </div>
         </div>
     </div>

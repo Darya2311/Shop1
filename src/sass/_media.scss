@@ -7,20 +7,6 @@
                 font-size: 40px;
             }
         }
-        .main__content {
-            flex-direction: column;
-            align-items: center;
-            .main__category {
-                width: 95%;
-                align-items: center;
-                .category {
-                    min-height: 25px;
-                }
-            }
-            .main__files {
-                width: 95%;
-            }
-        }
     }
     .services.media {
         padding: 30px 0;
@@ -58,15 +44,25 @@
     .the-way.media {
         margin-bottom: 20px;
     }
+    .main__content {
+        flex-direction: column;
+        align-items: center;
+        .main__category {
+            width: 95%;
+            align-items: center;
+            .category {
+                min-height: 25px;
+            }
+        }
+        .main__files {
+            width: 95%;
+        }
+    }
     .menu__elements.media {
         .menu__links {
             display: none;
         }
     }
-    // .main__content {
-    //     flex-direction: column;
-    //     align-items: center;
-    // }
     .gallery.media {
         .gallery__show {
             flex-wrap: wrap;
