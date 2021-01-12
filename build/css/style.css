@@ -177,6 +177,9 @@ header {
         display: flex;
         align-items: center;
         justify-content: center; }
+        header .nav__menu .menu__icons .icon__item:hover {
+          cursor: pointer;
+          transform: scale(1.2); }
         header .nav__menu .menu__icons .icon__item:nth-child(3) {
           margin-right: 30px; }
       header .nav__menu .menu__icons .icon__item.search {
@@ -209,6 +212,9 @@ header {
             margin-bottom: 10px;
             display: flex;
             justify-content: space-around; }
+            header .nav__menu .menu__icons .bag-page .for-cards .card-bag .del-elem {
+              cursor: pointer;
+              color: #9F78FF; }
             header .nav__menu .menu__icons .bag-page .for-cards .card-bag img {
               width: 80px;
               height: 100px; }

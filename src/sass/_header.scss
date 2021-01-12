@@ -107,6 +107,10 @@ header {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.2);
+                }
                 &:nth-child(3) {
                     margin-right: 30px;
                 }
@@ -144,6 +148,12 @@ header {
                         margin-bottom: 10px;
                         display: flex;
                         justify-content: space-around;
+
+                        .del-elem {
+                            cursor: pointer;
+                            color: #9F78FF;
+
+                        }
                         img {
                             width: 80px;
                             height: 100px;
