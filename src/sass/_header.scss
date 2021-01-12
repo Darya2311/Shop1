@@ -148,10 +148,13 @@ header {
                         margin-bottom: 10px;
                         display: flex;
                         justify-content: space-around;
+                        position: relative;
 
                         .del-elem {
                             cursor: pointer;
                             color: #9F78FF;
+                            position: absolute;
+                            right: 10px;
 
                         }
                         img {
@@ -193,7 +196,12 @@ header {
 
                         }
                     }
-
+                }
+                .summ {
+                    color: rgba(128, 128, 128, 0.603);
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 10px;
                 }
                 .for-button {
                     display: flex;

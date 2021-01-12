@@ -211,10 +211,13 @@ header {
             border: 2px solid white;
             margin-bottom: 10px;
             display: flex;
-            justify-content: space-around; }
+            justify-content: space-around;
+            position: relative; }
             header .nav__menu .menu__icons .bag-page .for-cards .card-bag .del-elem {
               cursor: pointer;
-              color: #9F78FF; }
+              color: #9F78FF;
+              position: absolute;
+              right: 10px; }
             header .nav__menu .menu__icons .bag-page .for-cards .card-bag img {
               width: 80px;
               height: 100px; }
@@ -245,6 +248,11 @@ header {
                   height: 30px;
                   border: none;
                   text-align: center; }
+        header .nav__menu .menu__icons .bag-page .summ {
+          color: rgba(128, 128, 128, 0.603);
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10px; }
         header .nav__menu .menu__icons .bag-page .for-button {
           display: flex;
           justify-content: space-around;
