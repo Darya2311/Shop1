@@ -1,100 +1,30 @@
-const data = [
-	{
-		category: "accessory",
-		type: "sm",
-		color: "blue",
-		price: 30, 
-		name: "scarf",
-		rating: 3,
-		imgUrl: "images/pic1.jpg",
-		id: 1
-	},
-	{
-		category: "clothes",
-		type: "lg",
-		color: "white",
-		price: 70, 
-		name: "shirt",
-		rating: 3,
-		imgUrl: "images/pic2.jpg",
-		id: 2
-	},
-	{
-		category: "clothes",
-		type: "lg",
-		color: "blue",
-		price: 60, 
-		name: "shirt",
-		rating: 4,
-		imgUrl: "images/pic3.jpg",
-		id: 3
-	},
-	{
-		category: "clothes",
-		type: "md",
-		color: "blue",
-		price: 40, 
-		name: "T-shirt",
-		rating: 5,
-		imgUrl: "images/pic4.jpg",
-		id: 4
-	},
-	{
-		category: "accessory",
-		type: "sm",
-		color: "black",
-		price: 25, 
-		name: "Glasses",
-		rating: 5,
-		imgUrl: "images/pic5.jpg",
-		id: 5
-	},
-	{
-		category: "clothes",
-		type: "md",
-		color: "white",
-		price: 50, 
-		name: "jumper",
-		rating: 3,
-		imgUrl: "images/pic6.jpg",
-		id: 6
-	},
-	{
-		category: "footwear",
-		type: "md",
-		color: "white",
-		price: 30, 
-		name: "sneakers",
-		rating: 4,
-		imgUrl: "images/pic7.jpg",
-		id: 7
-	},
-	{
-		category: "clothes",
-		type: "lg",
-		color: "dark-blue",
-		price: 55, 
-		name: "hoodies",
-		rating: 3,
-		imgUrl: "images/pic8.jpg",
-		id: 8
-	},
-];  
+let data = null;
+let url = "https://my-json-server.typicode.com/darya2311/database/cards"
+
+fetch(url)
+	.then(function (resp) {
+		return resp.json()
+	})
+	.then(function (finalResp) {
+		data = finalResp
+		appRender(finalResp);
+		showCategoryList();
+	})
 
 let shoppingCart = [];
 
 //  проверка сохраненной корзины
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
 	let storageShoppingCart = JSON.parse(localStorage.getItem("shoppingCart")) === null ? [] : JSON.parse(localStorage.getItem("shoppingCart"))
 	shoppingCart = storageShoppingCart
 })
 
 
 //  показывает выпадашку фильтров 
-function showCategoryList() {   
+function showCategoryList() {
 	let filterList = document.querySelectorAll('.filter');
-	filterList.forEach(function(filter) {
-		filter.addEventListener("click", function(e) {
+	filterList.forEach(function (filter) {
+		filter.addEventListener("click", function (e) {
 			e.target.closest('.filter').classList.toggle('show-cat-list');
 		})
 	})
@@ -102,13 +32,13 @@ function showCategoryList() {
 	catFilter(data);
 }
 
-showCategoryList();
+// showCategoryList();
 
 //  фильтр 
 function catFilter(data) { // попадает в data весь массив объектов
 	let catList = document.querySelectorAll('.category-item');
-	catList.forEach(function(item) {
-		item.addEventListener('click', function(e) {
+	catList.forEach(function (item) {
+		item.addEventListener('click', function (e) {
 			let category = e.target.getAttribute("data-category");
 			let filterType = e.target.closest('.filter').classList[1];
 			let newData;
@@ -116,15 +46,14 @@ function catFilter(data) { // попадает в data весь массив о�
 
 			if (category == "all") {
 				parentEl.innerHTML = " ";
-				console.log(data)
 				appRender(data)
 			} else {
 				if (filterType == "price") {
-					newData = data.filter(function(card) { 
+					newData = data.filter(function (card) {
 						return card[filterType] <= category
 					})
 				} else {
-					newData = data.filter(function(card) { // после фильтрации создается новый массив
+					newData = data.filter(function (card) { // после фильтрации создается новый массив
 						return card[filterType] == category
 					})
 				}
@@ -157,14 +86,14 @@ function cardRender(parent, data) {
 		</div>
 	</div>
 	`;
-	
+
 	parentEl.innerHTML += card
 };
 
 //  создает разметку блока рейтинга 
 function renderRating(data) {
 	let ratingEl = "";
-	for(i=0; i<data.rating; i++){
+	for (i = 0; i < data.rating; i++) {
 		ratingEl += '<i class="fas fa-star"></i>';
 	}
 	return ratingEl;
@@ -172,14 +101,10 @@ function renderRating(data) {
 
 //  создает карточки из массива объктов (карточек)
 function appRender(data) {
-	data.forEach(function(card){
+	data.forEach(function (card) {
 		cardRender(".main__files", card);
 	});
 };
-appRender(data);
-
-
-
 
 // создает клик на корзину
 let btnBox = document.querySelector(".icon__item.pack")
@@ -200,44 +125,42 @@ exit.addEventListener("click", hiddenBlock)
 let menu = document.querySelector(".menu-burger")
 let links = document.querySelectorAll(".burger.menu__link")
 
-menu.addEventListener("click", function(e) {
+menu.addEventListener("click", function (e) {
 	menu.classList.toggle("active");
 })
 
 
 //   добавление элемента в корзину
-document.addEventListener("click", function(e) {
-	if(e.target.classList.contains("for__icon") || (e.target.classList.contains("fa-shopping-bag"))) {
+document.addEventListener("click", function (e) {
+	if (e.target.classList.contains("for__icon") || (e.target.classList.contains("fa-shopping-bag"))) {
 		let allreadyEgsists = false;
 		let doublecatedItemIndex = null;
 		let cardId = e.target.closest(".card").getAttribute("data-id")
 		let shoppingCartItem = {
-			imgUrl:  data[cardId-1].imgUrl,
-			price:   data[cardId-1].price,
-			amount:  1,
+			imgUrl: data[cardId - 1].imgUrl,
+			price: data[cardId - 1].price,
+			amount: 1,
 			id: cardId
 		}
 
-		for (let i = 0; i< shoppingCart.length; i++) {
+		for (let i = 0; i < shoppingCart.length; i++) {
 			if (shoppingCart[i].id === shoppingCartItem.id) {
-			  allreadyEgsists = true
-			  doublecatedItemIndex = i
-			  break
+				allreadyEgsists = true
+				doublecatedItemIndex = i
+				break
 			}
-		  }
-	  
-		  if (allreadyEgsists) {
-			shoppingCart[doublecatedItemIndex].amount++
-		  } else {
-			shoppingCart.push(shoppingCartItem)
-		  }
-	
-		  localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
-		  shoppingCartRender(shoppingCart);
 		}
+
+		if (allreadyEgsists) {
+			shoppingCart[doublecatedItemIndex].amount++
+		} else {
+			shoppingCart.push(shoppingCartItem)
+		}
+
+		localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+		shoppingCartRender(shoppingCart);
+	}
 })
-
-
 
 //  отрисовка карточек в корзине
 function shoppingCartItemRender(parent, data) {
@@ -257,86 +180,83 @@ function shoppingCartItemRender(parent, data) {
 	</div>
 	`;
 	parentEl.innerHTML += shoppingCard
-	
-} 
+}
 
 // отрисовка корзины
 function shoppingCartRender(data) {
 	document.querySelector(".for-cards").innerHTML = '';
-	data.forEach(function(card) {
+	data.forEach(function (card) {
 		shoppingCartItemRender(".for-cards", card)
 
-		
-	// кнопки + и - в корзине
-	let addButton = document.querySelectorAll(".add-amount")
-	let removeButton = document.querySelectorAll(".remove-amount")
-	
-	addButton.forEach(function(item) {
-		item.addEventListener("click", function(e) {
-			let cartItemId = this.closest(".card-bag").getAttribute("data-id")
-			let cartItemAmountEl = this.previousElementSibling
-			let cartItemAmount = Number(cartItemAmountEl.innerHTML)
-	
-			cartItemAmount++
-			cartItemAmountEl.innerHTML = cartItemAmount
-	
-			
-			let changingObj = shoppingCart.filter(function(item) {
-				return cartItemId == item.id
-			})
-	
-			let changingObjIndex = shoppingCart.indexOf(changingObj[0])
-			shoppingCart[changingObjIndex].amount = cartItemAmount
-			localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
-		})
 
-	})
-	 
-	removeButton.forEach(function(item) {
-		item.addEventListener("click", function(e) {
-			let cartItemId = this.closest(".card-bag").getAttribute("data-id")
-			let cartItemAmountEl = this.nextElementSibling
-			let cartItemAmount = Number(cartItemAmountEl.innerHTML)
-			
-			if (cartItemAmount <= 0) {
-				return
-			} else {
-				cartItemAmount--
+		// кнопки + и - в корзине
+		let addButton = document.querySelectorAll(".add-amount")
+		let removeButton = document.querySelectorAll(".remove-amount")
+
+		addButton.forEach(function (item) {
+			item.addEventListener("click", function (e) {
+				let cartItemId = this.closest(".card-bag").getAttribute("data-id")
+				let cartItemAmountEl = this.previousElementSibling
+				let cartItemAmount = Number(cartItemAmountEl.innerHTML)
+
+				cartItemAmount++
 				cartItemAmountEl.innerHTML = cartItemAmount
-				let changingObj = shoppingCart.filter(function(item) {
+
+
+				let changingObj = shoppingCart.filter(function (item) {
 					return cartItemId == item.id
 				})
-		
+
 				let changingObjIndex = shoppingCart.indexOf(changingObj[0])
 				shoppingCart[changingObjIndex].amount = cartItemAmount
 				totalAmount(shoppingCart)
 				localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
-			}
-	
-		})
-
-	})
-
-	let delBtnList = document.querySelectorAll(".del-elem")
-	delBtnList.forEach(function(btn) {
-		btn.addEventListener("click", function() {
-			console.log(shoppingCart)
-			let cartItemId = this.closest(".card-bag").getAttribute("data-id")
-			let cartItem = this.closest(".card-bag")
-			let sure = confirm("Вы точно хотите удалить?")
-			if (sure) {
-				cartItem.remove()
-			}
-
-			let changingObj = shoppingCart.filter(function(item) {
-				return cartItemId == item.id
 			})
-			let changingObjIndex = shoppingCart.indexOf(changingObj[0])
-			shoppingCart.splice(changingObjIndex, 1)
-			totalAmount(shoppingCart)
-			localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
 		})
-	})
+
+		removeButton.forEach(function (item) {
+			item.addEventListener("click", function (e) {
+				let cartItemId = this.closest(".card-bag").getAttribute("data-id")
+				let cartItemAmountEl = this.nextElementSibling
+				let cartItemAmount = Number(cartItemAmountEl.innerHTML)
+
+				if (cartItemAmount <= 1) {
+					return
+
+				} else {
+					cartItemAmount--
+					cartItemAmountEl.innerHTML = cartItemAmount
+					let changingObj = shoppingCart.filter(function (item) {
+						return cartItemId == item.id
+					})
+
+					let changingObjIndex = shoppingCart.indexOf(changingObj[0])
+					shoppingCart[changingObjIndex].amount = cartItemAmount	
+					totalAmount(shoppingCart)
+					localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+				}
+			})
+		})
+
+		let delBtnList = document.querySelectorAll(".del-elem")
+		delBtnList.forEach(function (btn) {
+			btn.addEventListener("click", function () {
+				let cartItemId = this.closest(".card-bag").getAttribute("data-id")
+				let cartItem = this.closest(".card-bag")
+				let sure = confirm("Вы точно хотите удалить?")
+				if (sure) {
+					cartItem.remove()
+				}
+
+				let changingObj = shoppingCart.filter(function (item) {
+					return cartItemId == item.id
+				})
+				let changingObjIndex = shoppingCart.indexOf(changingObj[0])
+				shoppingCart.splice(changingObjIndex, 1)
+				totalAmount(shoppingCart)
+				localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+			})
+		})
 	})
 	totalAmount(shoppingCart)
 }
@@ -344,13 +264,13 @@ function shoppingCartRender(data) {
 function totalAmount(data) {
 	let totalAmount = 0;
 	let totalAmountEl = document.querySelector(".summ")
-	data.forEach(function(card) {
+	data.forEach(function (card) {
 		if (card.amount > 1) {
 			totalAmount += card.price * card.amount
-		} else {
+		}
+		else {
 			totalAmount += card.price
 		}
 	})
-	totalAmountEl.innerHTML = "Total Amount: " + totalAmount 
-	console.log(totalAmount)
+	totalAmountEl.innerHTML = "Total Amount: " + totalAmount
 }

@@ -217,7 +217,8 @@ header {
               cursor: pointer;
               color: #9F78FF;
               position: absolute;
-              right: 10px; }
+              right: 10px;
+              font-weight: bold; }
             header .nav__menu .menu__icons .bag-page .for-cards .card-bag img {
               width: 80px;
               height: 100px; }
@@ -353,7 +354,7 @@ header {
       .main .main__content .main__files .card {
         position: relative;
         transition: 0.5s ease-in-out; }
-        .main .main__content .main__files .card:hover .card__caption {
+        .main .main__content .main__files .card:hover {
           box-shadow: 3px 3px 3px 3px #F6F8FC;
           transition: 0.5s ease-in-out;
           background-color: white; }
